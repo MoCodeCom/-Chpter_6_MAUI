@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chapter_6.View.Pg_1.Page_1"
+             Title="Page_1">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <ListView x:Name="lst1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding FirstName}"
+                              Detail="{Binding LastName}"
+                              TextColor="Red"
+                              DetailColor="Blue"></TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Line/>
+        <Button Text="Image List" Clicked="Button_Clicked_ImgLst"></Button>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chapter_6.View.pg_2.Page_2"
+             Title="Page_2">
+    <StackLayout>
+        <Label 
+            Text="Image list"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" 
+            />
+
+        <ListView x:Name="lst" 
+                  WidthRequest="350"
+                  HeightRequest="400"
+                  HorizontalOptions="Start"
+                  VerticalOptions="Start"
+                  Margin="30"
+                  ItemTapped="lst_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="More"/>
+                            <MenuItem Text="Delete"/>
+                        </ViewCell.ContextActions>
+                        <StackLayout>
+                            <Frame CornerRadius="5"
+                                   >
+                                <Image Source="{Binding img}"
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   BackgroundColor="White"
+                                   HorizontalOptions="Start"
+                                   >
+                                </Image>
+                            </Frame>
+                            
+                            <Label Text="{Binding FirstName}"></Label>
+                            <Label Text="{Binding LastName}"></Label>
+                            <Button x:Name="BuyNow" Text="Buy Now" 
+                                    BackgroundColor="Teal" 
+                                    TextColor="White"
+                                    HorizontalOptions="EndAndExpand"
+                                    Clicked="BuyNow_Clicked"
+                                    CommandParameter="{Binding .}"
+                                    ></Button>
+                        </StackLayout>
+                    </ViewCell>
+                    
+                    <!--
+                    <ImageCell ImageSource="{Binding img}" 
+                               Text="{Binding FirstName}"
+                               Detail="{Binding LastName}"
+                               
+                               ></ImageCell>
+                    -->
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>

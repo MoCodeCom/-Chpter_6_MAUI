@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chapter_6.View.pg_3.GroupUserPage"
+             Title="GroupUserPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Group User Page"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <ListView x:Name="lst"
+                  IsGroupingEnabled="True"
+                  GroupDisplayBinding="{Binding key}"
+                  HasUnevenRows="True"
+                  VerticalScrollBarVisibility="Always"
+                  HorizontalScrollBarVisibility="Default"
+                  WidthRequest="300"
+                  HeightRequest="400"
+                  
+                  IsRefreshing="True"
+                  IsPullToRefreshEnabled="True"
+                  >
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                 HeightRequest="40"
+                                 BackgroundColor="Gray"
+                                 Padding="5"
+                                 Orientation="Horizontal">
+                            <Label Text="{Binding key}"
+                               TextColor="Black"
+                               VerticalOptions="Center"
+                               FontSize="15"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell
+                        Text="{Binding FirstName}"
+                        Detail="{Binding Note}"
+                        />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
